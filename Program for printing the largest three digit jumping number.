@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int isJumpingNumber(int num) {
+
+ int digit1, digit2;
+
+ while (num > 0) {
+
+ digit1 = num % 10;
+
+ num = num / 10;
+
+ if (num == 0) {
+
+ return 1;
+
+ }
+
+ digit2 = num % 10;
+
+ if (abs(digit1 - digit2) != 1) {
+
+ return 0;
+
+ }
+
+ }
+
+ return 1;
+
+}
+
+int main() {
+
+ printf("Largest three-digit jumping number: ");
+
+ for (int i = 999; i >= 100; --i) {
+
+ if (isJumpingNumber(i)) {
+
+ printf("%d\n", i);
+
+ break;
+
+ }
+
+ }
+
+ return 0;
+
+}
